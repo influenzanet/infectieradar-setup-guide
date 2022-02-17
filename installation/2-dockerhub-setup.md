@@ -61,32 +61,31 @@ To configure secrets for a GitHub repository navigate to the settings of the rep
 
 **Organization secrets** will be visible to each repository in the organization. **Repository secrets** will be visible only to that particular repository.
 
-The different secrets needed for each of the GitHub Repositories are listed below:
-
- - **participant-webapp**:
 	 - DOCKER_USER : Username for the account on dockerhub (Organization secret)
 	 - DOCKER_PASSWORD: Password for the account on dockerhub (Organization secret)
 	 - DOCKER_ORGANIZATION: Name of the organization on dockerhub under which the repositories exist. (Ex: influenzanet) (Organization secret)
-	 - DOCKER_REPO_NAME: The actual name of the image repository to push to on dockerhub. (Ex:participant-webapp) (Repository secret)
- - **study-service**:
-	 - Same fields as participant-webapp
- - **user-management-service**:
-	 - Same fields as the participant-webapp
- - **logging-service**:
-	 - Same fields as the participant-webapp
- -  **api-gateway**:
-	 - DOCKER_USER (Organization secret)
-	 - DOCKER_PASSWORD (Organization secret)
-	 - DOCKER_ORGANIZATION (Organization secret)
-	 - DOCKER_MANAGEMENT_API_REPO_NAME: Name of the dockerhub image for management-api. (eg: management-api-image) (Repository secret)
-	 - DOCKER_PARTICIPANT_API_REPO_NAME: Name of the dockerhub image for participant-api. (eg: participant-api-image) (Repository secret)
- - **messaging-service**:
-	 - DOCKER_USER (Organization secret)
-	 - DOCKER_PASSWORD (Organization secret)
-	 - DOCKER_ORGANIZATION (Organization secret)
-	 - DOCKER_REPO_MS: Name of the dockerhub image for messaging-service (eg: messaging-service-image) (Repository secret)
-	 - DOCKER_REPO_MSC: Name of the dockerhub image for messaging-scheduler (eg: messaging-scheduler-image) (Repository secret)
-	 - DOCKER_REPO_EC: Name of the dockerhub image for email-client-service (eg: email-client-service-image) (Repository secret)
+
+The different secrets needed for each of the GitHub Repositories are listed below:
+
+Each secret define the name of the image of each service to push to docker hub under the umbrella of the configured organization.
+The following table describes the secret name to create in each repository with a proposed value (those values are the ones used in the helm chart, if you change them, dont forget to update the name of the image in the helm chart configuration).
+
+|           Repository  | Secret name                      |Proposed value            | 
+|-----------------------|----------------------------------|--------------------------|
+|participant-webapp     | DOCKER_REPO_NAME                 |participant-webapp        |
+|                       |                                  |                          |
+|study-service          | DOCKER_REPO_NAME                 |study-service-image       |
+|                       |                                  |                          |
+|user-management-service| DOCKER_REPO_NAME                 |user-management-image     |
+|                       |                                  |                          |
+|logging-service        | DOCKER_REPO_NAME                 |logging-service-image     |
+|                       |                                  |                          |
+|messaging-service      | DOCKER_REPO_MS                   |messaging-service-image   |
+|                       | DOCKER_REPO_MSC                  |messaging-scheduler-image |
+|                       | DOCKER_REPO_EC                   |email-client-service-image|
+|                       |                                  |                          |
+|api-gateway            | DOCKER_MANAGEMENT_API_REPO_NAME  |management-api-image      |
+|                       | DOCKER_PARTICIPANT_API_REPO_NAME |participant-api-image     |
 
 Once the Dockerhub repositories and the secrets have been configured, you will notice that each repository can trigger a build by navigating to the actions tab on GitHub, selecting "Docker Image CI" and by clicking of the "run workflow" button. An easy method of identifying the different images is by using the version which is identical to the last tagged release in the respective GitHub repository. You can also choose to override the version being tagged and provide it through a manual input on triggering the workflow.
 
