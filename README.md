@@ -12,15 +12,15 @@ These repositories form the core services of the Influenzanet platform.
 
 | Service        | Repository           | Function  |
 | -------------- | -------------------- | ----------------:|
-| participant-api      | api-gateway | Default backend API Gateway for web participants |
-| management-api      | api-gateway | Backend API Gateway for the researchers and admins of Influenzanet |
-| study-service      | study-service | Backend service responsible for managing studies and surveys in the system |
-| user-management-service      | user-management-service | Backed service for the management of users in the system |
-| email-client-service      | messaging-service | Backend service responsible for sending emails out of the system |
-| message-scheduler      | messaging-service | Backend service that triggers events to send out emails periodically|
-| messaging-service      | messaging-service | Backend service that manages processing of all messages in the system |
-| logging-service      | logging-service | Backend service responsible for logging into DB information from all services |
-| participant-webapp      | participant-webapp  | React based front-end of the Influenzanet platform |
+| participant-api      | [api-gateway](https://github.com/influenzanet/api-gateway) | Default backend API Gateway for web participants |
+| management-api      | [api-gateway](https://github.com/influenzanet/api-gateway) | Backend API Gateway for the researchers and admins of Influenzanet |
+| study-service      | [study-service](https://github.com/influenzanet/study-service) | Backend service responsible for managing studies and surveys in the system |
+| user-management-service      | [user-management-service](https://github.com/influenzanet/user-management-service) | Backend service for the management of users in the system |
+| email-client-service      | [messaging-service](https://github.com/influenzanet/messaging-service) | Backend service responsible for sending emails out of the system |
+| message-scheduler      | [messaging-service](https://github.com/influenzanet/messaging-service) | Backend service that triggers events to send out emails periodically|
+| messaging-service      | [messaging-service](https://github.com/influenzanet/messaging-service) | Backend service that manages processing of all messages in the system |
+| logging-service      | [logging-service](https://github.com/influenzanet/logging-service) | Backend service responsible for logging into DB information from all services |
+| participant-webapp      | [participant-webapp](https://github.com/influenzanet/participant-webapp)  | React based front-end of the Influenzanet platform |
 
 ## Supplementary repositories
 
@@ -28,9 +28,9 @@ These repositories act as supporting applications and scripts to help set up, pe
 
 | Repository           | Function  |
 | -------------------- | ----------------:|
-| study-manager-app | Contains a React Application to help build surveys for researchers and export it as a JSON |
-| admin-scripts | Scripts to create studies, upload surveys, upload email templates, and perform config changes on a running Influenzanet platform (*private repository*) |
-| cluster-management | Scripts that help install Influenzanet on a GKE cluster, contains scripts to also stop all deployed services on a running cluster and restart them |
+| [study-manager-app](https://github.com/influenzanet/study-manager-app) | Contains a React Application to help build surveys for researchers and export it as a JSON |
+| [admin-scripts](https://github.com/influenzanet/admin-scripts) | Scripts to create studies, upload surveys, upload email templates, and perform config changes on a running Influenzanet platform (*private repository*) |
+| [cluster-management](https://github.com/influenzanet/cluster-management) | Scripts that help install Influenzanet on a GKE cluster, contains scripts to also stop all deployed services on a running cluster and restart them |
 
 ## Walkthrough Sections
 
